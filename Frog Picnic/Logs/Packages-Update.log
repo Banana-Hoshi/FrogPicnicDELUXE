@@ -1,0 +1,9 @@
+
+=== Sun Feb  5 15:58:15 2023
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.collab-proxy from version 1.17.2 to 1.17.6
+  com.unity.purchasing from version 4.4.0 to 4.4.1
