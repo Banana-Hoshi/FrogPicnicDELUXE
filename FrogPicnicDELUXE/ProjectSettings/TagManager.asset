@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+<<<<<<< Updated upstream
+=======
+  - Sandwhich
+  - Worm
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
