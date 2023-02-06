@@ -750,7 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: d98641c332b339c4c9ad359258ad7877, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -765,7 +765,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Shmoove
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!65 &1113437722
@@ -975,6 +975,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b153903e6ae8d434085357c0f1e66c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 0}
+  speed: 5
+  jumpForce: 40
+  isGrounded: 0
+  moving: 0
+  isRandom: 0
 --- !u!65 &1265260329
 BoxCollider:
   m_ObjectHideFlags: 0
