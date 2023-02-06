@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material 3
+  m_Name: Specular
   m_Shader: {fileID: 4800000, guid: c86a10184c09a3d47a45601426e09ecc, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -41,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 98bac77b1df00e8418c8489948674bc6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 87f352aa7c6d37a4c84bbd5093395740, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -73,15 +73,15 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimPower: 4
+    - _RimPower: 10
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.50980395, g: 0.7137255, b: 0.34901962, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 1, g: 0.7843138, b: 0.5254902, a: 0}
-    - _ShadowColor: {r: 1, g: 0.8352941, b: 0.9882353, a: 1}
+    - _RimColor: {r: 1, g: 0.99824226, b: 0.89056605, a: 0}
+    - _ShadowColor: {r: 1, g: 0.7773585, b: 0.91903955, a: 1}
   m_BuildTextureStacks: []
