@@ -4,75 +4,72 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public CharacterController controller;
+    Camera cam;
 
-    public Transform playerCam;
+    Rigidbody body;
+
+    Animator anim;
+
     public Transform groundCheck;
-
-    Vector3 velocity;
 
     public LayerMask groundMask;
 
-    int lookDir = 1;
+    Vector3 input;
+    Vector3 vel;
 
+    public float speed;
+    public float jumpHeight = 4f;
     public float gravity = -9.81f;
-    public float playerSpeed = 6f;
-    public float turnSmoothTime = 0.1f;
-    public float turnSmoothVelocity;
-    public float groundDistance = 0.2f;
-    public float jumpHeight = 3f;
+    public float groundDistance;
 
-    bool isGrounded;
+    bool grounded;
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        body = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
+        cam = FindObjectOfType<Camera>();
     }
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        grounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0f)
+        if (grounded && vel.y < 0)
         {
-            velocity.y = -2f;
+            vel.y = -2.0f;
         }
 
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        input = new Vector3(-Input.GetAxisRaw("Vertical"), gravity * Time.deltaTime, Input.GetAxisRaw("Horizontal"));
+        vel = input * speed;
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetButtonDown("Jump") && grounded)
         {
-            lookDir = -1;
+            vel.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
         }
-        else if (Input.GetKeyUp(KeyCode.S))
+
+        Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
+        Plane ground = new Plane(Vector3.up, Vector3.zero);
+        float length;
+
+        if (ground.Raycast(camRay, out length))
         {
-            lookDir = 1;
+            Vector3 look = camRay.GetPoint(length);
+            transform.LookAt(new Vector3(look.x, transform.position.y, look.z));
+        }
+
+        if (vel.x != 0.0f || vel.z != 0.0f)
+        {
+            anim.SetBool("moving", true);
         }
         else
         {
-            lookDir = 1;
+            anim.SetBool("moving", false);
         }
+    }
 
-        Vector3 direction = new Vector3(horizontal, 0f, vertical * lookDir).normalized;
-
-        if (direction.magnitude >= 0.1f)
-        {
-            float targetAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + playerCam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
-            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDirection.normalized * playerSpeed * Time.deltaTime);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-
-        velocity.y += gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
+    void FixedUpdate()
+    {
+        body.velocity = vel;
     }
 }
