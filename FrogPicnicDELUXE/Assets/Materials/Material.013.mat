@@ -63,6 +63,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: f405783b5c87bc349b357331189bea63, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _decalTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
@@ -78,6 +82,7 @@ Material:
     - _OutlineSize: 1.01
     - _Parallax: 0.02
     - _RimPower: 15
+    - _ShowDecal: 0
     - _ShowOutline: 1
     - _ShowRimLight: 1
     - _ShowTexture: 1

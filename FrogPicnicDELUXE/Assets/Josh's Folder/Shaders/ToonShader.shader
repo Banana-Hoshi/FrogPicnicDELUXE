@@ -14,121 +14,129 @@ Shader "Custom/ToonShader"
 		_RimColor("Rim Color", Color) = (1, 1, 1, 1)
 		_RimPower("Rim Power", Range(0.5, 15.0)) = 15.0
 		[Toggle] _ShowRimLight("Show Rim Light?", Float) = 1
+		[Toggle] _ShowDecal("Show Decal", Float) = 0
+
+		_decalTexture("Decal", 2D) = "white" {}
 	}
 
 		SubShader
+	{
+		Tags
 		{
-			Tags
-			{
-				"Queue" = "Transparent"
-			}
-			LOD 200
+			"Queue" = "Transparent"
+		}
+		LOD 200
 
-			// Outline Pass
-			Pass
-			{
-				Stencil
-				{
-				Ref 1
-				Comp Always
-				}
-
-				Cull Off
-				ZWrite Off
-
-				CGPROGRAM
-				#pragma vertex vert
-				#pragma fragment frag
-				#include "UnityCG.cginc"
-
-				float _OutlineSize;
-				float4 _OutlineColor;
-				float _ShowOutline;
-
-				struct appdata
-				{
-					float4 vertex : POSITION;
-					float3 normal : NORMAL;
-				};
-
-				struct v2f
-				{
-					float4 pos : POSITION;
-					float4 color : COLOR;
-					float3 normal : NORMAL;
-				};
-
-				v2f vert(appdata v)
-				{
-					v.vertex.xyz *= (_OutlineSize)*_ShowOutline;
-					v2f o;
-					o.pos = UnityObjectToClipPos(v.vertex);
-					o.color = _OutlineColor;
-					return o;
-				}
-
-				half4 frag(v2f i) : COLOR
-				{
-					return _OutlineColor;
-				}
-
-				ENDCG
-			}
-
-			// Toon Lighting
-
-			Tags {"RenderType" = "Opaque"}
-			LOD 200
-
+		// Outline Pass
+		Pass
+		{
 			Stencil
 			{
-				Ref 1
-				Comp Always
-				Pass Replace
+			Ref 1
+			Comp Always
 			}
+
+			Cull Off
+			ZWrite Off
 
 			CGPROGRAM
-			#pragma surface surf ToonRamp
-			#pragma target 3.0
+			#pragma vertex vert
+			#pragma fragment frag
+			#include "UnityCG.cginc"
 
-			float4 _Color;
-			sampler2D _RampTex;
-			sampler2D _MainTex;
-			float _ShowTexture;
-			float4 _RimColor;
-			float _RimPower;
-			float _ShowRimLight;
+			float _OutlineSize;
+			float4 _OutlineColor;
+			float _ShowOutline;
 
-			float4 LightingToonRamp(SurfaceOutput s, fixed3 lightDir, fixed atten)
+			struct appdata
 			{
-				float diff = (dot(s.Normal, lightDir) * 0.5 + 0.5) * atten;
-				float2 rh = diff;
-				float3 ramp = tex2D(_RampTex, rh).rgb;
-
-				float4 c;
-				c.rgb = s.Albedo * _LightColor0.rgb * (ramp);
-				c.a = s.Alpha;
-				return c;
-			}
-
-			struct Input
-			{
-				float2 uv_MainTex;
-				float3 viewDir;
-				float3 worldPos;
+				float4 vertex : POSITION;
+				float3 normal : NORMAL;
 			};
 
-			void surf(Input IN, inout SurfaceOutput o)
+			struct v2f
 			{
-				fixed4 c = (tex2D(_MainTex, IN.uv_MainTex)) * _ShowTexture;
-				o.Albedo = c.rgb * _Color;
-				half rim = 1.0 - saturate(dot(normalize(IN.viewDir), o.Normal));
-				o.Emission = (_RimColor.rgb * pow(rim, _RimPower)) * _ShowRimLight;
-				o.Alpha = c.a;
+				float4 pos : POSITION;
+				float4 color : COLOR;
+				float3 normal : NORMAL;
+			};
+
+			v2f vert(appdata v)
+			{
+				v.vertex.xyz *= (_OutlineSize)*_ShowOutline;
+				v2f o;
+				o.pos = UnityObjectToClipPos(v.vertex);
+				o.color = _OutlineColor;
+				return o;
+			}
+
+			half4 frag(v2f i) : COLOR
+			{
+				return _OutlineColor;
 			}
 
 			ENDCG
 		}
+
+		// Toon Lighting
+
+		Tags {"RenderType" = "Opaque"}
+		LOD 200
+
+		Stencil
+		{
+			Ref 1
+			Comp Always
+			Pass Replace
+		}
+
+		CGPROGRAM
+		#pragma surface surf ToonRamp
+		#pragma target 3.0
+
+		float4 _Color;
+		sampler2D _RampTex;
+		sampler2D _MainTex;
+		sampler2D _decalTexture;
+		half _mySlider;
+		float _ShowTexture;
+		float _ShowDecal;
+		float4 _RimColor;
+		float _RimPower;
+		float _ShowRimLight;
+
+
+		float4 LightingToonRamp(SurfaceOutput s, fixed3 lightDir, fixed atten)
+		{
+			float diff = (dot(s.Normal, lightDir) * 0.5 + 0.5) * atten;
+			float2 rh = diff;
+			float3 ramp = tex2D(_RampTex, rh).rgb;
+
+			float4 c;
+			c.rgb = s.Albedo * _LightColor0.rgb * (ramp);
+			c.a = s.Alpha;
+			return c;
+		}
+
+		struct Input
+		{
+			float2 uv_MainTex;
+			float3 viewDir;
+			float3 worldPos;
+		};
+
+		void surf(Input IN, inout SurfaceOutput o)
+		{
+			fixed4 c = (tex2D(_MainTex, IN.uv_MainTex)) * _ShowTexture;
+			fixed4 b = (tex2D(_decalTexture, IN.uv_MainTex)) * _ShowDecal;
+			o.Albedo = b.r > 0.9 ? b.rgb : c.rgb * _Color;
+			half rim = 1.0 - saturate(dot(normalize(IN.viewDir), o.Normal));
+			o.Emission = (_RimColor.rgb * pow(rim, _RimPower)) * _ShowRimLight;
+			o.Alpha = c.a;
+		}
+
+		ENDCG
+	}
 
 		FallBack "Diffuse"
 }
