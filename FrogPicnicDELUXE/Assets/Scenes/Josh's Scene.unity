@@ -335,9 +335,10 @@ GameObject:
   - component: {fileID: 122698147}
   - component: {fileID: 122698149}
   - component: {fileID: 122698148}
+  - component: {fileID: 122698150}
   m_Layer: 0
   m_Name: Sandwich
-  m_TagString: Untagged
+  m_TagString: Sandwhich
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -410,6 +411,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122698146}
   m_Mesh: {fileID: -1550514412580984892, guid: dec9d6c7f694c664eaf83e7b3dc062e1, type: 3}
+--- !u!65 &122698150
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122698146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7052641, y: 0.70526403, z: 0.18414848}
+  m_Center: {x: -0.97901225, y: -2.5580966, z: 0.16865207}
 --- !u!1 &181874542
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,9 +518,10 @@ GameObject:
   - component: {fileID: 183940163}
   - component: {fileID: 183940165}
   - component: {fileID: 183940164}
+  - component: {fileID: 183940166}
   m_Layer: 0
   m_Name: Sandwich 2
-  m_TagString: Untagged
+  m_TagString: Sandwhich
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -579,6 +594,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183940162}
   m_Mesh: {fileID: -1550514412580984892, guid: dec9d6c7f694c664eaf83e7b3dc062e1, type: 3}
+--- !u!65 &183940166
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183940162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.70526403, y: 0.70526403, z: 0.1841485}
+  m_Center: {x: -0.97901213, y: -2.5580966, z: 0.16865204}
 --- !u!1 &193629302
 GameObject:
   m_ObjectHideFlags: 0
@@ -6199,9 +6227,10 @@ GameObject:
   - component: {fileID: 853299770}
   - component: {fileID: 853299772}
   - component: {fileID: 853299771}
+  - component: {fileID: 853299773}
   m_Layer: 0
   m_Name: Worm
-  m_TagString: Untagged
+  m_TagString: worm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6271,6 +6300,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853299769}
   m_Mesh: {fileID: -7387706064836869012, guid: dec9d6c7f694c664eaf83e7b3dc062e1, type: 3}
+--- !u!65 &853299773
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853299769}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10205734, y: 0.24899378, z: 0.0703381}
+  m_Center: {x: -0.5120552, y: 0.47567067, z: 0.10315412}
 --- !u!1 &877460118
 GameObject:
   m_ObjectHideFlags: 0
@@ -8285,6 +8327,7 @@ GameObject:
   - component: {fileID: 1798195174566467772}
   - component: {fileID: 1798195174566467773}
   - component: {fileID: 1798195174566467774}
+  - component: {fileID: 1798195174566467775}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -8379,6 +8422,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1798195174566467775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423041100807619072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106d78027d48c44dab2be927990a464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WinCondition: 0
 --- !u!1 &2043251280995406005
 GameObject:
   m_ObjectHideFlags: 0

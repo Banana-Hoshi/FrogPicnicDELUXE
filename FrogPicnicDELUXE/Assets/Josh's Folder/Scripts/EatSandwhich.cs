@@ -31,7 +31,7 @@ public class EatSandwhich : MonoBehaviour
             WinCondition += 1;
             Destroy(other.gameObject);
         }
-        if (other.CompareTag("Worm"))
+        if (other.CompareTag("worm"))
         {
             Destroy(other.gameObject);
             WinCondition = 4;
