@@ -63,7 +63,7 @@ Shader "Custom/ToonShader"
 
 			v2f vert(appdata v)
 			{
-				v.vertex.xyz *= (_OutlineSize)*_ShowOutline;
+				v.vertex.xyz *= (_OutlineSize) * _ShowOutline;
 				v2f o;
 				o.pos = UnityObjectToClipPos(v.vertex);
 				o.color = _OutlineColor;
@@ -79,7 +79,6 @@ Shader "Custom/ToonShader"
 		}
 
 		// Toon Lighting
-
 		Tags {"RenderType" = "Opaque"}
 		LOD 200
 
@@ -104,7 +103,6 @@ Shader "Custom/ToonShader"
 		float4 _RimColor;
 		float _RimPower;
 		float _ShowRimLight;
-
 
 		float4 LightingToonRamp(SurfaceOutput s, fixed3 lightDir, fixed atten)
 		{
