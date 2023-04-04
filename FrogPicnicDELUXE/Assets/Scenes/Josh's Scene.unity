@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 92906319}
   - component: {fileID: 92906318}
   - component: {fileID: 92906317}
+  - component: {fileID: 92906321}
   - component: {fileID: 92906320}
   m_Layer: 0
   m_Name: Blue Marcos
@@ -315,15 +316,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 92906316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c2017c46a8452d40a501026582b2229, type: 3}
+  m_Script: {fileID: 11500000, guid: b153903e6ae8d434085357c0f1e66c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 1694807806}
-  - {fileID: 1681918404}
-  time: 0
-  startTime: 2
-  size: 0
+  body: {fileID: 92906318}
+  speed: 5
+  jumpForce: 5
+  isGrounded: 0
+  moving: 0
+  isRandom: 1
+--- !u!114 &92906321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92906316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: a2d24854a32b48649a4ec3b0b9a80b2d, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Move
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &122698146
 GameObject:
   m_ObjectHideFlags: 0
@@ -5725,9 +5756,8 @@ GameObject:
   - component: {fileID: 447498752}
   - component: {fileID: 447498751}
   - component: {fileID: 447498750}
-  - component: {fileID: 447498753}
-  - component: {fileID: 447498754}
   - component: {fileID: 447498755}
+  - component: {fileID: 447498754}
   m_Layer: 0
   m_Name: Yellow Marcos
   m_TagString: Untagged
@@ -5780,24 +5810,6 @@ Transform:
   m_Father: {fileID: 761872537}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 182.281, z: 0}
---- !u!114 &447498753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447498749}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c2017c46a8452d40a501026582b2229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {fileID: 1097411218}
-  - {fileID: 612528319}
-  time: 0.302
-  startTime: 1
-  size: 0
 --- !u!114 &447498754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5812,10 +5824,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 447498751}
   speed: 5
-  jumpForce: 40
+  jumpForce: 5
   isGrounded: 0
   moving: 0
-  isRandom: 0
+  isRandom: 1
 --- !u!114 &447498755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8597,6 +8609,7 @@ GameObject:
   - component: {fileID: 1391119247}
   - component: {fileID: 1391119246}
   - component: {fileID: 1391119245}
+  - component: {fileID: 1391119249}
   - component: {fileID: 1391119248}
   m_Layer: 0
   m_Name: Cerulean Marcos
@@ -8659,15 +8672,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 1391119244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c2017c46a8452d40a501026582b2229, type: 3}
+  m_Script: {fileID: 11500000, guid: b153903e6ae8d434085357c0f1e66c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 1185848141}
-  - {fileID: 506200006}
-  time: 0.763
-  startTime: 3
-  size: 0
+  body: {fileID: 1391119246}
+  speed: 5
+  jumpForce: 5
+  isGrounded: 0
+  moving: 0
+  isRandom: 1
+--- !u!114 &1391119249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391119244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: a2d24854a32b48649a4ec3b0b9a80b2d, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Move
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1468870196
 GameObject:
   m_ObjectHideFlags: 0
@@ -9165,6 +9208,7 @@ GameObject:
   - component: {fileID: 1658444285}
   - component: {fileID: 1658444284}
   - component: {fileID: 1658444283}
+  - component: {fileID: 1658444287}
   - component: {fileID: 1658444286}
   m_Layer: 0
   m_Name: Orange Marcos
@@ -9227,15 +9271,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 1658444282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c2017c46a8452d40a501026582b2229, type: 3}
+  m_Script: {fileID: 11500000, guid: b153903e6ae8d434085357c0f1e66c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 1336068326}
-  - {fileID: 1893441071}
-  time: 0
-  startTime: 0
-  size: 1
+  body: {fileID: 1658444284}
+  speed: 5
+  jumpForce: 5
+  isGrounded: 0
+  moving: 0
+  isRandom: 1
+--- !u!114 &1658444287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658444282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: a2d24854a32b48649a4ec3b0b9a80b2d, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Move
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1681918403
 GameObject:
   m_ObjectHideFlags: 0
