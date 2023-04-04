@@ -52,8 +52,8 @@ public class Marcos : MonoBehaviour
     void Update()
     {
         if (!isRandom)
-        moveDirection = move.ReadValue<Vector2>();
-        
+            moveDirection = move.ReadValue<Vector2>();
+
     }
 
     private void FixedUpdate()
