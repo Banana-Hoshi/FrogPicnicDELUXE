@@ -8,15 +8,18 @@ public class ToggleList : MonoBehaviour
     public List<Material> shadowMaterials;
 
     public GameObject particles;
+    public GameObject cam;
 
     public bool outlinesToggled;
     public bool shadowsToggled;
     public bool particlesToggled;
+    public bool doFToggled;
 
     private void Start()
     {
         outlinesToggled = true;
         particlesToggled = true;
+        doFToggled = true;
     }
 
     public void ToggleOutlines()
@@ -73,6 +76,19 @@ public class ToggleList : MonoBehaviour
         {
             particlesToggled = true;
             particles.SetActive(true);
+        }
+    }
+
+    public void ToggleDoF()
+    {
+        if (doFToggled == true)
+        {
+            doFToggled = false;
+            cam.GetComponent<DepthOfFieldEffect>().enabled = false;
+        } else if (doFToggled == false)
+        {
+            doFToggled = true;
+            cam.GetComponent<DepthOfFieldEffect>().enabled = true;
         }
     }
 }
