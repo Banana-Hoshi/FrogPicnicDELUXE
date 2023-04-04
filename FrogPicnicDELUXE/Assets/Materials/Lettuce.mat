@@ -82,7 +82,7 @@ Material:
     - _Parallax: 0.02
     - _RimPower: 15
     - _ShowDecal: 0
-    - _ShowOutline: 0
+    - _ShowOutline: 1
     - _ShowRimLight: 1
     - _ShowTexture: 1
     - _SmoothnessTextureChannel: 0
