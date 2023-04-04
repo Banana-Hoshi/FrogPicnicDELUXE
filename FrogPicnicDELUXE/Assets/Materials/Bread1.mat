@@ -12,7 +12,6 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _SHOWDECAL_ON
-  - _SHOWOUTLINE_ON
   - _SHOWRIMLIGHT_ON
   - _SHOWTEXTURE_ON
   m_LightmapFlags: 4
@@ -84,7 +83,7 @@ Material:
     - _Parallax: 0.02
     - _RimPower: 15
     - _ShowDecal: 1
-    - _ShowOutline: 1
+    - _ShowOutline: 0
     - _ShowRimLight: 1
     - _ShowTexture: 1
     - _SmoothnessTextureChannel: 0

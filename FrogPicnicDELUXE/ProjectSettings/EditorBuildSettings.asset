@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Josh's Scene.unity
+    path: Assets/Scenes/FrogForest.unity
     guid: fd7681153e2cdc0489a9aabf879a23b2
   m_configObjects: {}

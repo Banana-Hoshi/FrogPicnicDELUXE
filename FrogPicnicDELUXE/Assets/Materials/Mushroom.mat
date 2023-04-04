@@ -11,7 +11,6 @@ Material:
   m_Shader: {fileID: 4800000, guid: f61def69ebaf24f4382f35af547a9b45, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
-  - _SHOWOUTLINE_ON
   - _SHOWRIMLIGHT_ON
   - _SHOWTEXTURE_ON
   m_LightmapFlags: 4
@@ -83,7 +82,7 @@ Material:
     - _Parallax: 0.02
     - _RimPower: 15
     - _ShowDecal: 0
-    - _ShowOutline: 1
+    - _ShowOutline: 0
     - _ShowRimLight: 1
     - _ShowTexture: 1
     - _SmoothnessTextureChannel: 0
