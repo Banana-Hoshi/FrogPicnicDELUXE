@@ -22,7 +22,7 @@ Oscar - Models Decals, new map model, hats & hat swapping, water physics, water 
 	The decals work by adding the transparent image overtop of the existing mesh on an overlay layer. The texture I created is specifically made to repeat seamlessly, so that when it's applied as a decal it will seamlessly repeat over itself so that it becomes nearly impossible to tell when one tile starts and the other ends. 
 The water physics works by calculating the position over time using a sine wave calculation. Every update, it calculates the newest iteration and projects that onto the mesh to give the visual effect of the wave using our specified parameters (how fast it updates, how high the waves go, etc). This shader is combined with various other effects in our scene such as the ability to have an outline and a toon shader to match the rest of the scenes visuals. 
 
-Screenshots/Images folder: FrogPicnicDELUCE > Images (same location as ReadMe)
+Screenshots/Images folder: FrogPicnicDELUXE > Images (same location as ReadMe)
 
 Video Link: https://www.youtube.com/watch?v=Jkof4hEcaYI
 
