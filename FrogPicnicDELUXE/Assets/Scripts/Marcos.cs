@@ -17,7 +17,6 @@ public class Marcos : MonoBehaviour
 
     private InputAction move;
     private InputAction jump;
-    // Start is called before the first frame update
 
     private void Awake()
     {
@@ -30,10 +29,7 @@ public class Marcos : MonoBehaviour
             move.canceled += ctx => moving = false;
         }
     }
-    //void OnCollisionStay()
-    //{
-    //  isGrounded = true;
-    // }
+
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
@@ -53,7 +49,6 @@ public class Marcos : MonoBehaviour
     {
         if (!isRandom)
             moveDirection = move.ReadValue<Vector2>();
-
     }
 
     private void FixedUpdate()

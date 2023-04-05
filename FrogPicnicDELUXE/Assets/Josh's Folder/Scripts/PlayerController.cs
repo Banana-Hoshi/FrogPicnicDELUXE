@@ -24,11 +24,20 @@ public class PlayerController : MonoBehaviour
 
     bool grounded;
 
+    public GameObject[] hats;
+    private int currentHatIndex = 0;
+
     private void Start()
     {
         body = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         cam = FindObjectOfType<Camera>();
+
+
+        for (int i = 1; i < hats.Length; i++)
+        {
+            hats[i].SetActive(false);
+        }
     }
     // Update is called once per frame
     void Update()
@@ -65,6 +74,14 @@ public class PlayerController : MonoBehaviour
         else
         {
             anim.SetBool("moving", false);
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            hats[currentHatIndex].SetActive(false);
+            currentHatIndex = (currentHatIndex + 1) % hats.Length;
+            hats[currentHatIndex].SetActive(true);
         }
     }
 
