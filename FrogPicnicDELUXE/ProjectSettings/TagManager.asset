@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Sandwhich
   - worm
+  - Water
   layers:
   - Default
   - TransparentFX

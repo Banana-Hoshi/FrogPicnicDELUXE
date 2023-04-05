@@ -6,6 +6,7 @@ public class ToggleList : MonoBehaviour
 {
     public List<Material> toonMaterials;
     public List<Material> shadowMaterials;
+    public List<Material> decalMaterials;
 
     public GameObject particles;
     public GameObject cam;
@@ -16,6 +17,7 @@ public class ToggleList : MonoBehaviour
     public bool particlesToggled;
     public bool doFToggled;
     public bool fogToggled;
+    public bool decalToggled;
 
     private void Start()
     {
@@ -23,6 +25,7 @@ public class ToggleList : MonoBehaviour
         particlesToggled = true;
         doFToggled = true;
         fogToggled = true;
+        decalToggled = true;
     }
 
     public void ToggleOutlines()
@@ -104,6 +107,28 @@ public class ToggleList : MonoBehaviour
         {
             fogToggled = true;
             fog.SetActive(true);
+        }
+    }
+
+    public void ToggleSnow()
+    {
+        if (decalToggled == true)
+        {
+            decalToggled = false;
+
+            for (int i = 0; i <= decalMaterials.Count - 1; i++)
+            {
+                decalMaterials[i].SetFloat("_ShowDecal", 0);
+            }
+        }
+        else if (decalToggled == false)
+        {
+            decalToggled = true;
+
+            for (int i = 0; i <= decalMaterials.Count - 1; i++)
+            {
+                decalMaterials[i].SetFloat("_ShowDecal", 1);
+            }
         }
     }
 }

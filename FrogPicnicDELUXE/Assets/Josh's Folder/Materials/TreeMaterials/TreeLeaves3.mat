@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bread2
+  m_Name: TreeLeaves3
   m_Shader: {fileID: 4800000, guid: f61def69ebaf24f4382f35af547a9b45, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2b713e9d524a2ba46b94d47cedfe89ab, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -60,11 +60,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 2800000, guid: f405783b5c87bc349b357331189bea63, type: 3}
+        m_Texture: {fileID: 2800000, guid: 19e0cf9d626ee744daf50a3f44f56402, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _decalTexture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 43fba021038e48d428c61aefda675b93, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -79,11 +79,11 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineSize: 1.01
+    - _OutlineSize: 1.02
     - _Parallax: 0.02
     - _RimPower: 15
-    - _ScrollX: 1
-    - _ScrollY: 1
+    - _ScrollX: 0.11
+    - _ScrollY: 1.12
     - _ShowDecal: 0
     - _ShowOutline: 1
     - _ShowRimLight: 1
@@ -94,7 +94,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.0033752874, g: 0.0781779, b: 0.011655954, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}

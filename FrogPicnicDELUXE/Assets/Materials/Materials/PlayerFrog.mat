@@ -82,6 +82,8 @@ Material:
     - _OutlineSize: 1.02
     - _Parallax: 0.02
     - _RimPower: 15
+    - _ScrollX: 1
+    - _ScrollY: 1
     - _ShowDecal: 0
     - _ShowOutline: 1
     - _ShowRimLight: 1

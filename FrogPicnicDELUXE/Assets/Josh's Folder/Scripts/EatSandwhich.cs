@@ -36,9 +36,18 @@ public class EatSandwhich : MonoBehaviour
             Destroy(other.gameObject);
             WinCondition = 4;
         }
+        if (other.CompareTag("Water"))
+        {
+            Invoke("NextLevel", 0.15f);
+        }
+    }
+    private void NextLevel()
+    {
+        Application.LoadLevel(1);
+
     }
     private void RestartLevel()
     {
-        Application.LoadLevel(Application.loadedLevel);
+        Application.LoadLevel(0);
     }
 }

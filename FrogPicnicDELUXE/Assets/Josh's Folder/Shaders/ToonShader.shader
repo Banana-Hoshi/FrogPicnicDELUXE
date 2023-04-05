@@ -17,6 +17,8 @@ Shader "Custom/ToonShader"
 		[Toggle] _ShowDecal("Show Decal", Float) = 0
 
 		_decalTexture("Decal", 2D) = "white" {}
+		_ScrollX("Scroll X", Range(-5,5)) = 1
+		_ScrollY("Scroll Y", Range(-5,5)) = 1
 	}
 
 		SubShader
@@ -103,6 +105,8 @@ Shader "Custom/ToonShader"
 		float4 _RimColor;
 		float _RimPower;
 		float _ShowRimLight;
+		float _ScrollX;
+		float _ScrollY;
 
 		float4 LightingToonRamp(SurfaceOutput s, fixed3 lightDir, fixed atten)
 		{
@@ -126,7 +130,7 @@ Shader "Custom/ToonShader"
 		void surf(Input IN, inout SurfaceOutput o)
 		{
 			fixed4 c = (tex2D(_MainTex, IN.uv_MainTex)) * _ShowTexture;
-			fixed4 b = (tex2D(_decalTexture, IN.uv_MainTex)) * _ShowDecal;
+			fixed4 b = (tex2D(_decalTexture, (IN.uv_MainTex + float2(_ScrollX, _ScrollY)))) * _ShowDecal;
 			o.Albedo = b.r > 0.9 ? b.rgb : c.rgb * _Color;
 			half rim = 1.0 - saturate(dot(normalize(IN.viewDir), o.Normal));
 			o.Emission = (_RimColor.rgb * pow(rim, _RimPower)) * _ShowRimLight;
